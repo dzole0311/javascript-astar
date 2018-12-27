@@ -136,6 +136,12 @@ var astar = {
       var d1 = Math.abs(pos1.x - pos0.x);
       var d2 = Math.abs(pos1.y - pos0.y);
       return (D * (d1 + d2)) + ((D2 - (2 * D)) * Math.min(d1, d2));
+    },
+    euclidian: function() {
+      var D = 1;
+      var d1 = Math.abs(pos1.x - pos0.x);
+      var d2 = Math.abs(pos1.y - pos0.y);
+      return D * sqrt(d1 * d1 + d2 * d2);
     }
   },
   cleanNode: function(node) {
@@ -288,6 +294,7 @@ BinaryHeap.prototype = {
 
     // Allow it to sink down.
     this.sinkDown(this.content.length - 1);
+
   },
   pop: function() {
     // Store the first element so we can return it later.

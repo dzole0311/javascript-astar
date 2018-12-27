@@ -15,6 +15,7 @@ $(function() {
         $selectGridSize = $("#selectGridSize"),
         $checkDebug = $("#checkDebug"),
         $searchDiagonal = $("#searchDiagonal"),
+        $searchEuclidian = $("#searchEuclidian"),
         $checkClosest = $("#checkClosest");
 
     var opts = {
@@ -22,6 +23,7 @@ $(function() {
         gridSize: $selectGridSize.val(),
         debug: $checkDebug.is("checked"),
         diagonal: $searchDiagonal.is("checked"),
+        euclidian: $searchEuclidian.is("checked"),
         closest: $checkClosest.is("checked")
     };
 
@@ -49,6 +51,12 @@ $(function() {
         var val = $(this).is(":checked");
         grid.setOption({diagonal: val});
         grid.graph.diagonal = val;
+    });
+
+    $searchEuclidian.change(function() {
+        var val = $(this).is(":checked");
+        grid.setOption({euclidian: val});
+        grid.graph.euclidian = val;
     });
 
     $checkClosest.change(function() {
